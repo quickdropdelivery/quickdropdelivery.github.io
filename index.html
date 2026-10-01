@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QuickDrop — Delivery Platform Demo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">⚡ QuickDrop</div>
+  <div class="tag">Delivery platform demo</div>
+</header>
+
+<nav>
+  <button class="tab active" data-view="admin">👑 Admin</button>
+  <button class="tab" data-view="restaurant">🏪 Restaurant</button>
+  <button class="tab" data-view="partner">🛵 Delivery Partner</button>
+  <button class="tab" data-view="customer">📦 Customer</button>
+</nav>
+
+<main>
+<section id="admin" class="view active">
+  <div class="hero">
+    <div><h1>Your command center</h1><p>Manage orders, partners, restaurants and commission from one place.</p></div>
+    <button class="primary" onclick="resetDemo()">Reset demo</button>
+  </div>
+  <div class="stats">
+    <div><span>Total orders</span><b id="totalOrders">0</b></div>
+    <div><span>Completed</span><b id="completedOrders">0</b></div>
+    <div><span>Failed</span><b id="failedOrders">0</b></div>
+    <div><span>Commission</span><b id="commission">₹0</b></div>
+  </div>
+  <div class="card">
+    <h2>Orders</h2>
+    <div id="adminOrders"></div>
+  </div>
+</section>
+
+<section id="restaurant" class="view">
+  <div class="hero"><div><h1>Restaurant panel</h1><p>Create a delivery request and receive failed-delivery alerts.</p></div></div>
+  <div class="grid2">
+    <div class="card">
+      <h2>New delivery</h2>
+      <label>Restaurant name<input id="rName" value="Spice Kitchen"></label>
+      <label>Customer name<input id="cName" value="Aman"></label>
+      <label>Pickup address<input id="pickup" value="Spice Kitchen, Main Market"></label>
+      <label>Drop address<input id="drop" value="12 Green Park"></label>
+      <label>Delivery fee (₹)<input id="fee" type="number" value="100"></label>
+      <button class="primary full" onclick="createOrder()">Create delivery request</button>
+    </div>
+    <div class="card">
+      <h2>Restaurant orders</h2>
+      <div id="restaurantOrders"></div>
+    </div>
+  </div>
+</section>
+
+<section id="partner" class="view">
+  <div class="hero"><div><h1>Delivery partner</h1><p>Accept jobs and update delivery status.</p></div></div>
+  <div class="card">
+    <h2>Available / active deliveries</h2>
+    <div id="partnerOrders"></div>
+  </div>
+</section>
+
+<section id="customer" class="view">
+  <div class="hero"><div><h1>Customer tracking</h1><p>Demo view for checking delivery progress.</p></div></div>
+  <div class="card">
+    <h2>My deliveries</h2>
+    <div id="customerOrders"></div>
+  </div>
+</section>
+</main>
+
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
